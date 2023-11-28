@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inteligencias Artificiales</title>
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="principal.css">
+    <link rel="stylesheet" href="blog2.css">
+<link rel="stylesheet" href="estrellas.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <script src="//code.tidio.co/d6r8evi8ufesklqboa9fcjpplsfi8lyz.js" async></script>
+
+</head>
+
+
+    <!--Header - menu-->
+    <header class="barra dark-mode">
+
+            <label class="switch">
+                <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
+                <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>   
+                <input type="checkbox" class="input" id="dark-mode-toggle">
+                <span class="slider"></span>
+            </label>
+            
+        </div>
+
+        <script>
+            const darkModeToggle = document.getElementById("dark-mode-toggle");
+            const body = document.body;
+            const darkElements = document.querySelectorAll(".dark-mode");
+
+            darkModeToggle.addEventListener("change", () => {
+                if (darkModeToggle.checked) {
+                    body.classList.add("dark-mode-enabled");
+                    darkElements.forEach((element) => {
+                        element.classList.add("dark-mode-enabled");
+                    });
+                } else {
+                    body.classList.remove("dark-mode-enabled");
+                    darkElements.forEach((element) => {
+                        element.classList.remove("dark-mode-enabled");
+                    });
+                }
+            });
+        </script>
+
+
+
+    </header>
+
+
+    <!--Portada-->
+
+    <div class="container-all" id="move-content">
+
+    
+    <div class="blog-container-cover">
+        <div class="container-info-cover">
+            <h1>¡Encuentra cualquier IA que necesites!</h1>
+            <p>Organizamos para ti un repertorio con múltiples inteligencias artificiales para que puedas realizar lo que necesites:) </p>
+        </div>
+    </div>
+
+    <div class="container-post">
+
+        <input type="radio" id="TODOS" name="categories" value="TODOS" checked>
+        <input type="radio" id="ARTE" name="categories" value="ARTE">
+        <input type="radio" id="CONSULTAS" name="categories" value="CONSULTAS">
+        <input type="radio" id="MUSICA" name="categories" value="MUSICA">
+        <input type="radio" id="BOTS" name="categories" value="BOTS">
+        <input type="radio" id="PROGRAMACION" name="categories" value="PROGRAMACION">
+       
+
+        <div class="container-category">
+            <label for="TODOS">TODOS</label>
+            <label for="ARTE">ARTE</label>
+            <label for="CONSULTAS">CONSULTAS</label>
+            <label for="MUSICA">MÚSICA</label>
+            <label for="BOTS">BOTS</label>
+            <label for="PROGRAMACION">PROGRAMACIÓN</label>
+
+        </div>
+
+        <div class="posts">
+
+            <div class="post" data-category="CSS">
+
+                <div class="ctn-img">
+                    <img src="gpt.webp" alt="">
+                </div>
+                <h2>OpenAI GPT-3</h2>
+                <span>GPT-3 es uno de los modelos de lenguaje más avanzados de OpenAI, capaz de realizar tareas de procesamiento de lenguaje natural, como responder preguntas, generar texto y mucho más.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="articulo.html"><button>Leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="PROGRAMACION">
+
+                <div class="ctn-img"><img src="ibm3.webp" alt=""></div>
+                <h2>IBM Watson</h2>
+                <span>Watson es una plataforma de inteligencia artificial de IBM que ofrece una amplia gama de servicios para el procesamiento de lenguaje natural, visión por computadora, análisis de datos y más.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                
+                <a href="#"><button>leer más</button></a>
+
+                
+            </div>
+
+            <div class="post" data-category="MUSICA">
+
+                <div class="ctn-img"><img src="microsoft.png" alt=""></div>
+                <h2>Microsoft Azure Cognitive Services</h2>
+                <span>Ofrece una variedad de servicios de inteligencia artificial, incluyendo visión, lenguaje, voz y búsqueda, para desarrolladores y empresas.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="ARTE">
+
+                <div class="ctn-img"><img src="ggclou.jpg" alt=""></div>
+                <h2>Google Cloud AI</h2>
+                <span>Proporciona herramientas y servicios de inteligencia artificial en la nube, incluyendo visión por computadora, procesamiento de lenguaje natural y aprendizaje automático.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="BOTS">
+
+                <div class="ctn-img"><img src="amzlex.png" alt=""></div>
+                <h2>Amazon Lex</h2>
+                <span>Amazon Lex es un servicio de AWS que permite crear chatbots y aplicaciones de voz conversacionales con tecnología de aprendizaje profundo.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="BOTS">
+
+                <div class="ctn-img"><img src="bert2.jpg" alt=""></div>
+                <h2>BERT</h2>
+                <span>es un modelo de procesamiento de lenguaje natural, o NPL por sus siglas en inglés. El NPL es un tipo de inteligencia artificial que transforma el lenguaje humano en información entendible para computadoras para luego extraer un significado.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="BOTS">
+
+                <div class="ctn-img"><img src="witia.png" alt=""></div>
+                <h2>Wit.ai</h2>
+                <span> Un servicio de procesamiento de lenguaje natural de Facebook que ayuda a construir aplicaciones con capacidades de lenguaje natural.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+
+            <div class="post" data-category="BOTS">
+
+                <div class="ctn-img"><img src="botpress.png" alt=""></div>
+                <h2>Botpress</h2>
+                <span>Un framework de código abierto para la creación de chatbots y asistentes virtuales conversacionales.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="CONSULTAS">
+
+                <div class="ctn-img"><img src="dialog.png" alt=""></div>
+                <h2>Dialogflow</h2>
+                <span> Un servicio de procesamiento de lenguaje natural de Google que permite construir interfaces conversacionales.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+
+            <div class="post" data-category="CONSULTAS">
+
+                <div class="ctn-img"><img src="jasper.png" alt=""></div>
+                <h2>JasperDocs</h2>
+                <span> Ofrece soluciones de automatización de documentos impulsadas por inteligencia artificial.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="CONSULTAS">
+
+                <div class="ctn-img"><img src="pandora.png" alt=""></div>
+                <h2>PandoraBots</h2>
+                <span> Ofrece tecnología de chatbot y asistentes virtuales para aplicaciones y sitios web.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="CONSULTAS">
+
+                <div class="ctn-img"><img src="replika.png" alt=""></div>
+                <h2>Replika</h2>
+                <span> Un chatbot con un enfoque en el aprendizaje y la conversación significativa.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="CONSULTAS">
+
+                <div class="ctn-img"><img src="chatter.webp" alt=""></div>
+                <h2>ChatterBot</h2>
+                <span> Un motor de chatbot de Python que se utiliza para crear chatbots personalizados.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="CONSULTAS">
+
+                <div class="ctn-img"><img src="cleverbot.png" alt=""></div>
+                <h2>Cleverbot</h2>
+                <span> Un chatbot con una amplia base de conocimientos y la capacidad de mantener conversaciones interactivas.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="CONSULTAS">
+
+                <div class="ctn-img"><img src="pype2.jpg" alt=""></div>
+                <h2>Pypestream</h2>
+                <span> Ofrece soluciones de mensajería y chatbot para empresas, incluyendo atención al cliente y marketing.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+            <div class="post" data-category="CONSULTAS">
+
+                <div class="ctn-img"><img src="tars.png" alt=""></div>
+                <h2>Tars Chatbots</h2>
+                <span> Se especializa en chatbots para generación de leads y automatización de marketing.</span>
+                <ul class="ctn-tag">
+                    <div class="rating">
+                        <input type="radio" id="star-1" name="star-radio" value="star-1">
+                        <label for="star-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-2" name="star-radio" value="star-1">
+                        <label for="star-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-3" name="star-radio" value="star-1">
+                        <label for="star-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-4" name="star-radio" value="star-1">
+                        <label for="star-4">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                        <input type="radio" id="star-5" name="star-radio" value="star-1">
+                        <label for="star-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                        </label>
+                      </div>
+                </ul>
+                <a href="#"><button>leer más</button></a>
+
+            </div>
+
+
+            
+
+        </div>
+
+    </div>
+
+    
+    
+
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

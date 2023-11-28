@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Lenguaje natural con Google Cloud Dialogflow</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+	/*====================================================
+	 THEME SETTINGS & GLOBAL VARIABLES
+	====================================================*/
+
+	window.CONFIG = {
+		// 1. Content API key.
+		apiKey: 'c3a05316850b22f060cc01e982',
+		// 2. Fixed navbar.
+		fixedNavbar: false,
+		// 3. Disqus comment settings.
+		disqusShortname: 'todobi',
+		// 4. Twitter username.
+		twitterUsername: 'TodoBI_OS'
+	};
+</script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tiny-slider@2.9.4/dist/tiny-slider.css" integrity="sha256-6biQaot1QLisz9KkkcCCHWvW2My9SrU6VtqJBv8ChCM=" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/monokai-sublime.min.css" integrity="sha256-4MHFzY0va2jGQvk9H/oo+QcjJhz/YfF8Wf95yHtXasc=" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/css/screen.css?v=da8ccfd358">
+		<link rel="icon" href="https://todobi.com/content/images/size/w256h256/2019/11/todobi-icon-3.png" type="image/png">
+    <link rel="canonical" href="https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="TodoBI - Business Intelligence, Big Data, ML y AI">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Lenguaje natural con Google Cloud Dialogflow">
+    <meta property="og:description" content="Google define Dialogflow como “una plataforma con comprensión del lenguaje
+natural que te facilita el diseño de una interfaz de usuario de conversación y
+su integración a tu aplicación para dispositivos móviles, aplicación web,
+dispositivo, bot, sistema de respuesta de voz interactiva y más”.
+
+Descargar tutorial en español
+[https://stratebi.">
+    <meta property="og:url" content="https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/">
+    <meta property="og:image" content="https://todobi.com/content/images/2020/10/dialogflow.png">
+    <meta property="article:published_time" content="2020-10-05T16:36:33.000Z">
+    <meta property="article:modified_time" content="2020-10-05T16:36:33.000Z">
+    <meta property="article:tag" content="artificial intelligence">
+    <meta property="article:tag" content="google">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lenguaje natural con Google Cloud Dialogflow">
+    <meta name="twitter:description" content="Google define Dialogflow como “una plataforma con comprensión del lenguaje
+natural que te facilita el diseño de una interfaz de usuario de conversación y
+su integración a tu aplicación para dispositivos móviles, aplicación web,
+dispositivo, bot, sistema de respuesta de voz interactiva y más”.
+
+Descargar tutorial en español
+[https://stratebi.">
+    <meta name="twitter:url" content="https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/">
+    <meta name="twitter:image" content="https://todobi.com/content/images/2020/10/dialogflow.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Emilio">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="artificial intelligence, google">
+    <meta name="twitter:site" content="@TodoBI_OS">
+    <meta name="twitter:creator" content="@TodoBI_OS">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="669">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "TodoBI - Business Intelligence, Big Data, ML y AI",
+        "url": "https://todobi.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://todobi.com/content/images/2019/11/todobi-logo-1.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Emilio",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://todobi.com/content/images/2019/11/todobi-icon-6.png",
+            "width": 256,
+            "height": 256
+        },
+        "url": "https://todobi.com/author/emilio/",
+        "sameAs": [
+            "https://todobi.com",
+            "https://twitter.com/TodoBI_OS"
+        ]
+    },
+    "headline": "Lenguaje natural con Google Cloud Dialogflow",
+    "url": "https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/",
+    "datePublished": "2020-10-05T16:36:33.000Z",
+    "dateModified": "2020-10-05T16:36:33.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://todobi.com/content/images/2020/10/dialogflow.png",
+        "width": 1920,
+        "height": 669
+    },
+    "keywords": "artificial intelligence, google",
+    "description": "Google define Dialogflow como “una plataforma con comprensión del lenguaje\nnatural que te facilita el diseño de una interfaz de usuario de conversación y\nsu integración a tu aplicación para dispositivos móviles, aplicación web,\ndispositivo, bot, sistema de respuesta de voz interactiva y más”.\n\nDescargar tutorial en español\n[https://stratebi.es/todobi/Oct20/Google_Cloud_Dialogflow]\nDialogflow permite el análisis de varios tipos de entrada, como texto o audio, y\npuede responder con texto o con voz",
+    "mainEntityOfPage": "https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.69">
+    <link rel="alternate" type="application/rss+xml" title="TodoBI - Business Intelligence, Big Data, ML y AI" href="https://todobi.com/rss/">
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="e34fe435a7fa53d1f08623f353" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://todobi.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://todobi.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=da8ccfd358"></script><style>:root {--ghost-accent-color: #eb6b0a;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=da8ccfd358">
+	</head>
+	<body class="post-template tag-artificial-intelligence tag-google" >
+		<div class="page-wrap">
+	<!-- start header -->
+	<header class="main-header">
+		<nav class="navbar navbar-default" id="main-navbar">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+						<span class="sr-only">Alternar navegación</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="search-open" href="#" title="Buscar">
+						<i class="fa fa-search"></i>
+					</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+	<ul class="nav navbar-nav">
+			<li class="home "><a href="https://todobi.com/">Home</a></li>
+			<li class="pentaho "><a href="https://todobi.com/tag/pentaho/">Pentaho</a></li>
+			<li class="big-data "><a href="https://todobi.com/tag/big-data/">Big Data</a></li>
+			<li class="ofertas-de-empleo-bi "><a href="https://www.stratebi.com/trabajo/">Ofertas de empleo BI</a></li>
+	</ul>
+</div>
+
+			</div>
+		</nav>
+		<a class="logo-wrap" href="https://todobi.com">
+			<img class="logo-left" src="/assets/images/header-left.png?v=da8ccfd358" alt="TodoBI - Business Intelligence, Big Data, ML y AI">
+			<!-- start logo -->
+				<img class="logo logo-image" src="https://todobi.com/content/images/2019/11/todobi-logo-1.png" alt="Blog de Business Intelligence, Big Data, Machine Learning e Inteligencia Artificial en español">
+			<!-- end logo -->
+			<img class="logo-right" src="/assets/images/header-right.png?v=da8ccfd358" alt="TodoBI - Business Intelligence, Big Data, ML y AI">
+		</a>
+		<div class="secondary-bar">
+	<div class="latest-slider-wrap clearfix">
+		<div class="slider-title">
+			Últimos
+		</div>
+		<div class="slider-nav">
+			<a class="latest-prev" href="#" title="Anterior artículo"><i class="fa fa-angle-left"></i></a>
+			<a class="latest-next" href="#" title="Siguiente artículo"><i class="fa fa-angle-right"></i></a>
+		</div>
+		<!-- Start latest slider -->
+		<div class="slider-wrapper">
+			<div class="slider-content">
+					<a class="item" href="/25-completos-diagramas-para-aprender-sobre-datos-y-tecnologia/" title="25 comprehensive diagrams to learn about data and technology">
+						25 comprehensive diagrams to learn about data and technology
+					</a>
+					<a class="item" href="/soft-skills-para-tecnicos/" title="&#x27;Soft Skills&#x27; para técnicos">
+						&#x27;Soft Skills&#x27; para técnicos
+					</a>
+					<a class="item" href="/top-15-dashboards-tools/" title="Top 15 Dashboards Tools">
+						Top 15 Dashboards Tools
+					</a>
+					<a class="item" href="/como-usar-chatgpt-con-powerbi/" title="Cómo usar ChatGPT con PowerBI">
+						Cómo usar ChatGPT con PowerBI
+					</a>
+					<a class="item" href="/como-usar-bases-de-datos-nosql-en-casos-reales/" title="Como usar Bases de datos NoSQL en casos reales">
+						Como usar Bases de datos NoSQL en casos reales
+					</a>
+					<a class="item" href="/las-25-mejores-herramientas-open-source-para-crear-visualizaciones-con-mapas/" title="Las 25 mejores herramientas Open Source para crear visualizaciones con Mapas">
+						Las 25 mejores herramientas Open Source para crear visualizaciones con Mapas
+					</a>
+					<a class="item" href="/c/" title="Apache Spark y Databricks">
+						Apache Spark y Databricks
+					</a>
+			</div>
+		</div>
+		<!-- end latest slider -->
+	</div>
+	<!-- social icons -->
+<ul class="social-links">
+	<li>
+		<a href="https://twitter.com/TodoBI_OS" title="Twitter">
+			<i class="fa fa-twitter"></i>
+		</a>
+	</li>
+	<li>
+		<a href="https://www.linkedin.com/company/stratebi" title="LinkedIn">
+			<i class="fa fa-linkedin"></i>
+		</a>
+	</li>
+	<li>
+		<a href="/rss/" title="RSS">
+			<i class="fa fa-rss"></i>
+		</a>
+	</li>
+	<li>
+		<a href="mailto:administrador@todobi.com" title="Mail">
+			<i class="fa fa-envelope"></i>
+		</a>
+	</li>
+</ul>
+</div>
+	</header>
+	<!-- end header -->
+		<div class="cover-wrap">
+	<div class="container">
+		<div class="featured-layout row row-no-gutters">
+				<div class="col-sm-6 col-xs-12">
+	<div class="post-wrap first-post post tag-hash-page-01">
+		<div class="featured-media">
+			<a href="/lincebi-la-mejor-solucion-big-data-analytics-basada-en-open-source/" title="LinceBI, la mejor solución Big Data Analytics basada en Open Source">
+				<div class="image-container"  style="background-image: url(https://todobi.com/content/images/2019/11/LinceBI_banner.jpg);" ></div>
+				<div class="title-wrap">
+					<h4 class="title h4">
+						LinceBI, la mejor solución Big Data Analytics basada en Open Source
+					</h4>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+				<div class="col-sm-3 col-xs-6">
+	<div class="post-wrap post tag-powerbi tag-curso tag-dashboards tag-business-intelligence tag-hash-page-02">
+		<div class="featured-media">
+			<a href="/curso-online-de-power-bi-febrero/" title="Curso Online de Power BI (17, 18 Febrero)">
+				<div class="image-container"  style="background-image: url(https://todobi.com/content/images/2021/01/Retail-Page-01_peq-1.jpg);" ></div>
+				<div class="title-wrap">
+					<h4 class="title h4">
+						Curso Online de Power BI (17, 18 Febrero)
+					</h4>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+				<div class="col-sm-3 col-xs-6">
+	<div class="post-wrap post tag-hash-page-03">
+		<div class="featured-media">
+			<a href="/pentaho-analytics/" title="Pentaho Analytics">
+				<div class="image-container"  style="background-image: url(https://todobi.com/content/images/2019/11/Pentaho.jpg);" ></div>
+				<div class="title-wrap">
+					<h4 class="title h4">
+						Pentaho Analytics
+					</h4>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+				<div class="col-sm-3 col-xs-6">
+	<div class="post-wrap post tag-hash-page-04">
+		<div class="featured-media">
+			<a href="/material-big-data/" title="Material Big Data">
+				<div class="image-container"  style="background-image: url(https://todobi.com/content/images/2019/11/bigdataTodoBI.jpg);" ></div>
+				<div class="title-wrap">
+					<h4 class="title h4">
+						Material Big Data
+					</h4>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+				<div class="col-sm-3 col-xs-6">
+	<div class="post-wrap post tag-hash-page-05">
+		<div class="featured-media">
+			<a href="/metodologias-agiles-para-analytics-business-intelligence-big-data/" title="Metodologias Agiles para Analytics (Business Intelligence, Big Data)">
+				<div class="image-container"  style="background-image: url(https://todobi.com/content/images/2019/11/agiles.jpg);" ></div>
+				<div class="title-wrap">
+					<h4 class="title h4">
+						Metodologias Agiles para Analytics (Business Intelligence, Big Data)
+					</h4>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="row default-layout">
+					<!-- start post -->
+					<article class="col-sm-12 post-wrap full-post">
+						<h1 class="title">
+							Lenguaje natural con Google Cloud Dialogflow
+						</h1>
+						<div class="post-meta">
+								<span class="author">
+									<i class="fa fa-user"></i>
+									<a href="/author/emilio/" title="Emilio">Emilio</a>
+								</span>
+							<span class="date">
+								<i class="fa fa-calendar-o"></i>
+								oct. 05, 2020
+							</span>
+							<span class="comment">
+								<i class="fa fa-comment-o"></i>
+								<a href="https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/#disqus_thread" data-disqus-identifier="5f76eba3a6bf9d0001838c7b">0</a>
+							</span>
+						</div>
+						<div class="featured-media">
+								<div class="tag-list"><a href="/tag/artificial-intelligence/">artificial intelligence</a><a href="/tag/google/">google</a></div>
+								<div class="image-container">
+									<img src="https://todobi.com/content/images/2020/10/dialogflow.png" alt="Lenguaje natural con Google Cloud Dialogflow">
+								</div>
+						</div>
+						<div class="post-entry">
+							<p>Google define <strong>Dialogflow </strong>como “una plataforma con comprensión del lenguaje natural que te facilita el diseño de una interfaz de usuario de conversación y su integración a tu aplicación para dispositivos móviles, aplicación web, dispositivo, bot, sistema de respuesta de voz interactiva y más”.</p><h2 id="descargar-tutorial-en-espa-ol"><strong><a href="https://stratebi.es/todobi/Oct20/Google_Cloud_Dialogflow?ref=todobi.com">Descargar tutorial en español</a></strong></h2><figure class="kg-card kg-image-card"><img src="https://todobi.com/content/images/2020/10/Flow-1.jpg" class="kg-image" alt loading="lazy" width="1295" height="789" srcset="https://todobi.com/content/images/size/w600/2020/10/Flow-1.jpg 600w, https://todobi.com/content/images/size/w1000/2020/10/Flow-1.jpg 1000w, https://todobi.com/content/images/2020/10/Flow-1.jpg 1295w" sizes="(min-width: 720px) 720px"></figure><p><strong>Dialogflow</strong> permite el análisis de varios tipos de entrada, como texto o audio, y puede responder con texto o con voz sintética</p><p><strong>Google Dialogflow </strong>permite la creación de chatbots con comprensión del lenguaje natural. Puede analizar texto o audio y generar respuesta en formato texto o con voz sintética. Existen dos versiones, <strong>ES </strong>que sirve para crear agentes pequeños, medianos o modernamente complejos, y <strong>CX </strong>que sirve para crear agentes grandes o muy complejos. Son diferentes en cuanto al diseño, <strong>ES </strong>funciona con intents y contextos, <strong>CX </strong>con páginas y flujos. En la siguiente versión de este documento veremos <strong>Google Dialogflow CX</strong></p>
+						</div>
+					</article>
+					<!-- end post -->
+					<div class="share-wrap col-sm-12">
+	<div class="share-wrap-inner clearfix">
+		<div class="share-text h4">Compartir este artículo:</div>
+		<ul>
+			<!-- linkedin -->
+			<li>
+				<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/" onclick="window.open(this.href, 'linkedin-share', 'width=490,height=530');return false;" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+			</li>
+			<!-- facebook -->
+			<li>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Facebook"><i class="fa fa-facebook"></i></a>
+			</li>
+			<!-- twitter -->
+			<li>
+				<a href="https://twitter.com/share?text=Lenguaje%20natural%20con%20Google%20Cloud%20Dialogflow&amp;url=https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Twitter"><i class="fa fa-twitter"></i></a>
+			</li>
+		</ul>
+	</div>
+</div>
+					<!-- start about the author -->
+	<div class="about-author col-sm-12 clearfix">
+			<a href="/author/emilio/" title="Emilio"><img src="https://todobi.com/content/images/2019/11/todobi-icon-6.png" alt="Imagen del autor" class="avatar pull-left"></a>
+		<div class="details">
+			<div class="author">
+				<a class="h4" href="/author/emilio/" title="Emilio">Emilio</a>
+			</div>
+			<div class="meta-info">
+					<span class="website"><i class="fa fa-link fa-fw"></i><a href="https://todobi.com">Website</a></span>
+					<span class="twitter"><i class="fa fa-twitter fa-fw"></i><a href="https://twitter.com/TodoBI_OS">Twitter</a></span>
+			</div>
+		</div>
+	</div>
+<!-- end about the author -->
+					<div class="col-sm-12">
+	<div class="prev-next-wrap clearfix">
+			<a
+				href="/cual-es-el-roadmap-para-ser-un-data-engineer/"
+				title="Cual es el roadmap para ser un Data Engineer"
+					class="next-post pull-left"
+					style="background-image: url(https://todobi.com/content/images/2020/10/roadmap.png)"
+			>
+				<div class="prev-next-inner">
+					<span class="link-text">Siguiente artículo</span>
+					<h3 class="title h4">Cual es el roadmap para ser un Data Engineer</h3>
+				</div>
+			</a>
+			<a
+				href="/apache-beam-introduccion/"
+				title="Apache Beam: Introducción"
+					class="next-post pull-right"
+					style="background-image: url(https://todobi.com/content/images/2020/10/Beam.png)"
+			>
+				<div class="prev-next-inner">
+					<span class="link-text">Anterior artículo</span>
+					<h3 class="title h4">Apache Beam: Introducción</h3>
+				</div>
+			</a>
+	</div>
+</div>
+					<!-- start disqus comment -->
+<div class="col-sm-12">
+	<div class="comment-container">
+		<iframe id="disqus-thread" title="Disqus thread"></iframe>
+		<script>
+			(function () {
+				var shortname = CONFIG.disqusShortname;
+
+				var $disqusThreadIframe = document.querySelector('#disqus-thread');
+				$disqusThreadIframe.style.width = '100%';
+				$disqusThreadIframe.style.height = '0px';
+				$disqusThreadIframe.contentDocument.body.style.margin = '0px';
+				$disqusThreadIframe.contentDocument.body.style.overflow = 'hidden';
+				$disqusThreadIframe.contentWindow.disqus_config = function () {
+					this.page.url = 'https://todobi.com/lenguaje-natural-con-google-cloud-dialogflow/';
+					this.page.identifier = '5f76eba3a6bf9d0001838c7b';
+				};
+
+				var $disqusThreadContainer = document.createElement('div');
+				$disqusThreadContainer.id = 'disqus_thread';
+				$disqusThreadIframe.contentDocument.body.append($disqusThreadContainer);
+
+				var $disqusThreadScript = document.createElement('script');
+				$disqusThreadScript.src = 'https://' + shortname + '.disqus.com/embed.js';
+				$disqusThreadScript.dataset.timestamp = Date.now();
+				$disqusThreadIframe.contentDocument.body.append($disqusThreadScript);
+
+				$disqusThreadIframe.contentWindow.addEventListener('message', function (event) {
+					if (event.data && event.data !== 'ping') {
+						try {
+							var data = JSON.parse(event.data);
+							if (data.name === 'resize' || data.name === 'rendered') {
+								$disqusThreadIframe.style.height = (data.data.height - 30) + 'px';
+							}
+						} catch (err) {
+							console.error(err);
+						}
+					}
+				}, false);
+			})();
+		</script>
+	</div>
+</div>
+<!-- end disqus comment -->
+			</div>
+		</div>
+		<aside class="col-md-4">
+	<div class="sidebar">
+		<!-- start widget -->
+<div class="widget">
+	<h4 class="title h5"><span>Artículos destacados</span></h4>
+	<div class="content sidebar-post">
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/12-aplicaciones-gratuitas-para-crear/" title="12 aplicaciones gratuitas para crear Dashboards">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/principal.png)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				12 aplicaciones gratuitas para crear Dashboards
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				enero 18, 2022
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/como-empezar-aprender-big-data-en-2/" title="Como empezar a aprender Big Data en 2 horas">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/02/69c872d45407f0932589a48a0da6860f8c60be06924fc9fefad94afee883a463.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Como empezar a aprender Big Data en 2 horas
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				diciembre 02, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/metodologias-agiles-para-bidw/" title="Metodologias Agiles para Analytics (Business Intelligence, Big Data)">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/58ea6d547a936f37b2ec4108aca076f038b4c4ccda98d16d0dff4c05303a2636.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Metodologias Agiles para Analytics (Business Intelligence, Big Data)
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				septiembre 26, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/powerbi-para-big-data/" title="Big Data para PowerBI">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/a60deb267bf3a1f4bb470235e5d1abc1f91e645d5881a0a5d6cbba3fdbc65c5b.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Big Data para PowerBI
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				enero 16, 2020
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/los-9-problemas-los-que-se-enfrentan/" title="Los 9 problemas a los que se enfrentan las empresas que trabajan con datos">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/02/a834d3f8b842df9fd05faf364c0bb0461da04865b3872cfc33d9a11077504e18.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Los 9 problemas a los que se enfrentan las empresas que trabajan con datos
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				octubre 17, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/stcard-free-license-way-to-create/" title="STCard, a free license way to create powerful Scorecards">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/da65510216fc5e4dceb4aec176d8c1538d9c29e16265ebe8d47f619b748c5b57.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				STCard, a free license way to create powerful Scorecards
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				noviembre 13, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/tutorial-online-gratuito-de/" title="Tutorial gratuito de Introduccion a Pentaho">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/d0222f8522868cd18d66adeebfefc20b64b0c652a796127a130bfaf82b5b77f1.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Tutorial gratuito de Introduccion a Pentaho
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				diciembre 26, 2018
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/free-whitepaper-big-data-analytics/" title="Free whitepaper &#x27;Big Data Analytics benchmark&#x27; for fastest Business Intelligence performance">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/02/de2d3a6344d86005a5fde2529f75d3f1d9fd1e8e66a04000e8078778eaaca828.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Free whitepaper &#x27;Big Data Analytics benchmark&#x27; for fastest Business Intelligence performance
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				mayo 21, 2020
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/videotutorial-usando-r-para-machine/" title="Videotutorial: Usando R para Machine Learning con PowerBI">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/02/acf54a4e7cc260b07f306f5d3c2ccf303c05fd600602d0d2607cd91d3bc888a9.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Videotutorial: Usando R para Machine Learning con PowerBI
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				noviembre 21, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/las-50-claves-para-aprender-y-conocer/" title="Las 50 claves para aprender y conocer PowerBI">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/02/7bf7eae08d15f75138c57054d1afbc9ad4020d59b1526c6fd477947a3440dcdf.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Las 50 claves para aprender y conocer PowerBI
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				noviembre 08, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/how-to-create-web-dashboards-from-excel/" title="STAgile, simple, just Dashboards in seconds">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/02/b64ecd037e2d7c66682ce362296ea2ebe7baf12b6c075d9b0b8df6867429f933.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				STAgile, simple, just Dashboards in seconds
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				noviembre 04, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/tutorial-de-introduccion-talend-open/" title="Tutorial de Introduccion a Talend Open Studio">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/075fa329b3bbef3425bf0c2537f3d0101858ca8fb50642bd00415683bc8985f2.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Tutorial de Introduccion a Talend Open Studio
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				octubre 29, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/lincebi-best-analyticsbigdata-open/" title="LinceBI, the best Analytics/BigData open source based solution!!">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/507493f5ce519643d5ad3726404a9605947ef70ee62b6eb18e65440b01886301.png)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				LinceBI, the best Analytics/BigData open source based solution!!
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				octubre 28, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/diccionario-de-arquitecturas-de-datos/" title="Diccionario de Arquitecturas de Datos">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2022/06/DiccionariodeDatos.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Diccionario de Arquitecturas de Datos
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				junio 06, 2022
+			</div>
+		</div>
+	</a>
+</div>
+<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/11-consejos-sobre-bad-data-el-enemigo/" title="11 Consejos sobre Bad Data: el enemigo silencioso en Business Intelligece y Big Data">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/7bb2df452f6127d058d4b90a7f35fbf7e992520dae2084a67162838ce281dd81.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				11 Consejos sobre Bad Data: el enemigo silencioso en Business Intelligece y Big Data
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				octubre 25, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/como-extraer-y-trabajar-con-los-datos-de-sap/" title="Como extraer y trabajar con los datos de SAP">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/10/SAP.png)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Como extraer y trabajar con los datos de SAP
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				octubre 26, 2020
+			</div>
+		</div>
+	</a>
+</div>
+<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/videotutorial-introduccion-a-vertica-database/" title="Videotutorial: Introduccion a Vertica Analytics Database">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/02/Vertica-1.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Videotutorial: Introduccion a Vertica Analytics Database
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				enero 30, 2020
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/30-consejos-y-buenas-practicas-para-hacer-un-proyecto-de-power-bi-con-exito/" title="30 Consejos y Buenas Prácticas para hacer un proyecto de Power BI con éxito">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2021/01/Sin-t-tulo.png)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				30 Consejos y Buenas Prácticas para hacer un proyecto de Power BI con éxito
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				julio 25, 2021
+			</div>
+		</div>
+	</a>
+</div>
+<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/por-que-muchos-data-scientist-estan/" title="Por que muchos Data Scientist estan dejando sus trabajos?">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/f9675eff121b739b6895fd0d33191c76e700ed04a88c50b9640f2732de0d7b79.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Por que muchos Data Scientist estan dejando sus trabajos?
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				octubre 14, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/videotutorial-trabajando-con-python-en-power-bi/" title="Videotutorial: Trabajando con Python en Power BI">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2021/01/Python_PowerBI.png)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Videotutorial: Trabajando con Python en Power BI
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				enero 07, 2021
+			</div>
+		</div>
+	</a>
+</div>
+<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/herramientas-business-intelligence-open-source/" title="Herramientas Business Intelligence Open Source">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/BI_opensource.png)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Herramientas Business Intelligence Open Source
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				abril 27, 2020
+			</div>
+		</div>
+	</a>
+</div>
+
+			
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/top-business-intelligence-tools/" title="Top Business Intelligence Tools study">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2019/11/8572faa8db4891fce1e5f48f7c60e3e8c94a4359c51c0e2af59eb0f26800938f.jpg)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Top Business Intelligence Tools study
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				octubre 22, 2019
+			</div>
+		</div>
+	</a>
+</div>
+
+			<div class="sidebar-single-post clearfix have-image">
+	<a class="post-title" href="/cual-es-el-roadmap-para-ser-un-data-engineer/" title="Cual es el roadmap para ser un Data Engineer">
+			<div class="post-thumb pull-left" style="background-image:url(https://todobi.com/content/images/2020/10/roadmap.png)"></div>
+		<div class="post-info">
+			<h4 class="h5">
+				Cual es el roadmap para ser un Data Engineer
+			</h4>
+			<div class="date">
+				<i class="fa fa-calendar-o"></i>
+				octubre 06, 2020
+			</div>
+		</div>
+	</a>
+</div>
+
+			
+			
+			
+			
+			
+	</div>
+</div>
+<!-- end widget -->
+	</div>
+</aside>
+	</div>
+</div>
+
+		<footer class="main-footer">
+	<!--
+	<div class="footer-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+				</div>
+				<div class="col-sm-4">
+				</div>
+				<div class="col-sm-4">
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 copyright">
+					&copy; 2023 <a href="https://todobi.com">TodoBI - Business Intelligence, Big Data, ML y AI</a>. Todos los derechos reservados.
+					Powered by <a href="https://ghost.org/">Ghost</a>.
+				</div>
+				<div class="col-sm-2">
+					<div class="feed-link-wrap">
+						<a href="https://todobi.com/rss/"><i class="fa fa-rss-square"></i> Suscribir</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>
+<a id="back-to-top" href="#" title="Volver al principio">
+	<i class="fa fa-angle-up"></i>
+</a>
+<div id="search-popup">
+	<div id="search-close">
+		<i class="fa fa-close"></i>
+	</div>
+	<div class="popup-inner">
+		<div id="search-form">
+			<input type="text" id="search-input" placeholder="Escribe para buscar..." disabled>
+			<i class="fa fa-search"></i>
+		</div>
+		<div id="search-results">
+			<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+		</div>
+		<template id="search-item">
+			<div class="search-item">
+				<a class="anchor" href="#">
+					<div class="media">
+						<div class="media-left media-middle">
+							<img class="media-object image">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading title"></h4>
+							<div class="date"></div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</template>
+	</div>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-377384-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-377384-1');
+</script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+		<script async src="https://cdn.jsdelivr.net/npm/@tryghost/content-api@1.11.5/umd/content-api.min.js" integrity="sha256-iasj6DQk2cqL/aNwf8eKe8qgtUk2i/O+1bSB33lrU/8=" crossorigin="anonymous"></script>
+		<script async src="https://cdn.jsdelivr.net/npm/@tryghost/helpers@1.1.75/umd/helpers.min.js" integrity="sha256-yP6Fm/JhlgGHClBHG+bUshalfVjO+KV0YYQumBVkV8Y=" crossorigin="anonymous"></script>
+		<script async src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
+		<script async src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+		<script async src="https://cdn.jsdelivr.net/npm/tiny-slider@2.9.4/dist/min/tiny-slider.js" integrity="sha256-RsQPuXPeh7cPnHON9+ncUB+F/aNeWqyK6tA17mlXpiU=" crossorigin="anonymous"></script>
+		<script async src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script>
+		<script async src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js" integrity="sha256-nxnOvB1EQa4fD/xpakJii5+GX+XZne2h8ejNW+yHiIg=" crossorigin="anonymous"></script>
+		<script async src="https://cdn.jsdelivr.net/gh/davatron5000/FitVids.js@1.2.0/jquery.fitvids.js" integrity="sha256-B/efvaNaK/A/KUCXhnCipTzyHkkOzOiHv5L8Lj81kpM=" crossorigin="anonymous"></script>
+		<script async src="/assets/js/main.js?v=da8ccfd358"></script>
+	</body>
+</html>

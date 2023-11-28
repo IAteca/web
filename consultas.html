@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Barra de búsqueda</title>
+	<style>
+		.search-container {
+			display: flex;
+			align-items: center;
+		}
+
+		.search-input {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 6px;
+			font-size: 20px;
+			width: 200px;
+		}
+
+		.search-button {
+			background-color: #0B749C;
+			color: white;
+			padding: 18px 20px;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+		}
+
+		.search-button:hover {
+			background-color: #26222C;
+		}
+	</style>
+</head>
+<body>
+	<div class="search-container">
+		<form action="search.php" method="get">
+			<input type="text" placeholder="Buscar..." name="query" class="search-input">
+			<button type="submit" class="search-button">Buscar</button>
+		</form>
+	</div>
+</body>
+</html>

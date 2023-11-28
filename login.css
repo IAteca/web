@@ -1,0 +1,281 @@
+
+
+body{
+  background-color: #ededed;
+}
+
+
+
+.login-box{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 500px;
+    height: 300px;
+font-family: Fira Code, Consolas, 'Courier New', monospace;
+    float: right;
+    text-align: center;
+    margin-top: 100px;
+    margin-right: px;
+    padding: 30px;
+    padding-right: 50px;
+    box-shadow: #444 10px 10px 10px;
+}
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    margin-top: 0;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    margin: 10px 0;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+   
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 522px;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+.recuperar{
+    width: 179px;
+    font-size: 13px;
+    padding-top: 10px;
+    font-family: inherit;
+    color: blue;
+    text-align: left;
+}
+
+
+
+.recuperar:hover {
+   color: rgb(59, 59, 246);
+}
+
+.img-login{
+    float: left;
+}
+
+
+
+
+
+
+
+.switch {
+float: right;
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #73C0FC;
+    transition: .4s;
+    border-radius: 30px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    left: 2px;
+    bottom: 2px;
+    z-index: 2;
+    background-color: #e8e8e8;
+    transition: .4s;
+  }
+  
+  .sun svg {
+    position: absolute;
+    top: 6px;
+    left: 36px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .moon svg {
+    fill: #73C0FC;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* .switch:hover */.sun svg {
+    animation: rotate 15s linear infinite;
+  }
+  
+  @keyframes rotate {
+   
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* .switch:hover */.moon svg {
+    animation: tilt 5s linear infinite;
+  }
+  
+  @keyframes tilt {
+   
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    25% {
+      transform: rotate(-10deg);
+    }
+  
+    75% {
+      transform: rotate(10deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+  .input:checked + .slider {
+    background-color: #183153;
+  }
+  
+  .input:focus + .slider {
+    box-shadow: 0 0 1px #183153;
+  }
+  
+  .input:checked + .slider:before {
+    transform: translateX(30px);
+  }
+  
+  /* Agregamos un estilo adicional para el modo oscuro */
+/* ... Tu CSS anterior ... */
+
+/* Agregamos un estilo adicional para el modo oscuro */
+/* Agregamos un estilo adicional para el modo oscuro */
+.dark-mode-enabled {
+    background-color: #333;
+    color: white; /* Cambiado a "white" para el texto en modo oscuro */
+}
+
+.dark-mode-enabled .login-box {
+    background-color: #444; /* Fondo oscuro para el login-box */
+    color: white; /* Texto claro para el login-box */
+    box-shadow:  black 10px 10px 10px;
+
+}
+
+
+
+
+.texto-inicio{
+    padding-top: 460px;
+    padding-left: 630px;
+}
+
+
+
+
+.img-login{
+  margin-left: 20px;
+  height: 620px;
+  border-radius: 2%;
+  box-shadow: black 5px 5px 40px 5px  ;
+  justify-content: center;
+}
+
+
+
+
+
+img{
+  transform: translateX(0px);
+animation: float 6s ease-out infinite;
+
+}
+
+@keyframes float{
+  0%{
+    transform: translateY(0px);
+    
+  }
+
+  25%{
+    transform: translateY(20px);
+    
+  }
+  
+  50%{
+    transform: translateY(-20px);
+    
+  }
+  75%{
+    transform: translateY(20px);
+    
+  }
+
+  100%{
+    transform: translateY(0px);
+    
+  }
+  
+}
